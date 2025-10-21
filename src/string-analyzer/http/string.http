@@ -1,14 +1,15 @@
-POST http://localhost:3000/strings
+
+POST https://hng-string-analyzer.up.railway.app/strings
 Content-Type: application/json
 {
-  "value": "madam"
+  "value": "level"
 }
 
 
 GET http://localhost:3000/strings/madam
 
 
-GET http://localhost:3000/strings
+GET https://hng-string-analyzer.up.railway.app/strings
 
 
 GET http://localhost:3000/strings?is_palindrome=true

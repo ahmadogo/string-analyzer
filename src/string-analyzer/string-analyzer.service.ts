@@ -58,7 +58,7 @@ export class StringAnalyzerService {
     const exists = await this.stringRepo.findOne({
       where: { id: analysis.sha256_hash },
     });
-    if (exists) throw new ConflictException('String already exists');
+    if (exists) throw new ConflictException();
 
     const record = this.stringRepo.create({
       id: analysis.sha256_hash,
