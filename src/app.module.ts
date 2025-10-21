@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { StringAnalyzerModule } from './string-analyzer/string-analyzer.module';
 import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -42,5 +43,6 @@ import { AppController } from './app.controller';
     StringAnalyzerModule,
   ],
   controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
