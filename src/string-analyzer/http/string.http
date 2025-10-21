@@ -1,0 +1,25 @@
+POST http://localhost:3000/strings
+Content-Type: application/json
+{
+  "value": "madam"
+}
+
+
+GET http://localhost:3000/strings/madam
+
+
+GET http://localhost:3000/strings
+
+
+GET http://localhost:3000/strings?is_palindrome=true
+
+### Delete by value (URL-encoded)
+DELETE http://localhost:3000/strings/madam
+
+
+GET http://localhost:3000/strings?min_length=5&max_length=10
+
+
+GET http://localhost:3000/strings?contains_character=a
+
+GET  http://localhost:3000/strings/filter-by-natural-language?query=strings%20longer%20than%2010%20characters
