@@ -1,25 +1,28 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { AnalyzedString } from './string-analyzer/entities/string-analyzer.entity';
 import { StringAnalyzerModule } from './string-analyzer/string-analyzer.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true, // makes .env variables available everywhere
+      isGlobal: true,
     }),
+
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'postgres',
-        url: process.env.DATABASE_URL, // automatically uses Railway’s variable
+        url: process.env.DATABASE_URL,
+        autoLoadEntities: true,
+        synchronize: true,
         ssl:
           process.env.NODE_ENV === 'production'
             ? { rejectUnauthorized: false }
             : false,
-        autoLoadEntities: true,
-        synchronize: true, // OK for dev, turn off for prod migrations
       }),
     }),
+
     StringAnalyzerModule,
   ],
 })
