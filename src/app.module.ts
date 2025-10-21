@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { StringAnalyzerModule } from './string-analyzer/string-analyzer.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -40,5 +41,6 @@ import { StringAnalyzerModule } from './string-analyzer/string-analyzer.module';
 
     StringAnalyzerModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
